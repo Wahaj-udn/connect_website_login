@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your Ideas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Full-width background image */
+    body {
+      background-image: url('idea.jpg'); /* Use your image path here */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh; /* Full height */
+      display: flex;
+      align-items: center; /* Center the content vertically */
+    }
+    /* Overlay for better readability */
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque for better readability */
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      width: 100%; /* Full width */
+      max-width: 600px; /* Max width to keep it neat */
+      margin: auto; /* Center horizontally */
+    }
+    /* Custom form styling */
+    .form-section {
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Interactive Form Section -->
+  <div class="overlay">
+    <div class="form-section">
+      <h1 class="text-center mb-4">Share Your Idea</h1>
+      
+      <form method="post" action="{% url 'share_idea' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Personal Details -->
+        
+        <!-- Submit Button -->
+        <form method="post" action="{% url 'share_idea' %}">
+          {% csrf_token %}
+          {{ form.as_p }}  <!-- Ensure your form fields correspond to the model -->
+          <button type="submit" class="btn btn-primary">Submit Idea</button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // For showing the selected file name in file input
+    $('.custom-file-input').on('change', function () {
+      var fileName = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').html(fileName);
+    });
+  </script>
+
+</body>
+</html>

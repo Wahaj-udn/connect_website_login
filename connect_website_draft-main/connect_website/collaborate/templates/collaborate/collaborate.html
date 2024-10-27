@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborate - Connect Website</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'collaborate/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+     <!-- Navbar section -->
+     <nav class="navbar">
+        <div class="navbar__container">
+            <a href="{% url 'home' %}" id="navbar__logo">CONNECT</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="{% url 'home' %}" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'collaborate' %}" class="navbar__links">Collaborate</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'projects' %}" class="navbar__links">Projects</a>
+                </li>
+                
+                <li class="navbar__btn">
+                    <a href="{% url 'login' %}" class="button">Log-in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Hero section -->
+    <div class="main">
+        <div class="main__container">
+            <div class="main__content">
+                <h1>Collaborate</h1>
+                <h2>to achieve sustainable goals</h2>
+                <p>be a part of the change</p>
+            </div>
+            <div class="main__img--container">
+                <img src="images/pic1.svg" alt="pic" id="main__img">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Partnership Section -->
+    <div class="partnership">
+        <div class="partnership__container">
+            <h2>Looking for partnerships? Let others know!</h2>
+            <button class="partnership__btn">
+                <a href="{% url 'login' %}">Get Started</a>
+            </button>
+        </div>
+    </div>
+
+    <!-- Services section -->
+    <div class="services">
+        <h1>Here's what you can do</h1>
+        <div class="services__container">
+            <div class="services__card">
+                <h2>Help communities</h2>
+                <p>foster collaborations</p>
+                <a href="{% url 'contribute' %}">
+                    <button>Contribute</button>
+                </a>
+            </div>
+            <div class="services__card">
+                <h2>Innovate for sustainability</h2>
+                <p>Take the leap!</p>
+                <a href="{% url 'share_idea' %}">
+                    <button>Share Idea</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__copyright">
+                © 2024 Connect Website. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>   
+</body>
+</html>

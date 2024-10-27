@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+        .navbar {
+            background-color: black;
+            padding: 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar .user-type {
+            font-size: 18px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #34495e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 100px;
+            color: white;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar ul li.active{
+            background-color: #ff8177;
+            border-radius: 10px;
+            
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dashboard-header h2 {
+            margin: 0;
+        }
+        .dashboard-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .profile-section h3 {
+            margin-top: 0;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #16a085;        
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>Dashboard</h1>
+        <div class="user-type">
+            <p>Logged in as: <span id="userType">Individual</span></p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li class = 'active'><a href="#"> Profile</a></li>
+            <li><a href="{% url 'index2' %}"> Home</a></li>
+            <li><a href="#"> Logout</a></li>
+        </ul>
+    </div>
+    <div class = "main-content">
+        <div class="profile-section">
+            <h3>Profile Information</h3>
+            <p><strong>Name:</strong> 
+                {% if individual_profile %}
+                    {{ individual_profile.name }}
+                {% elif business_profile %}
+                    {{ business_profile.company_name }}
+                {% else %}
+                    N/A
+                {% endif %}
+            </p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Occupation:</strong> 
+                {% if individual_profile %}
+                    {{ individual_profile.occupation }}
+                {% endif %}
+            </p>
+            <p><strong>User ID:</strong> {{ user.username }}</p>
+        </div>
+    </div>    
+    
+</body>
+</html>

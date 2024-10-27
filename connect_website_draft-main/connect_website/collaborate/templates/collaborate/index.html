@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Website</title>
+    <!-- Use static tag to load CSS -->
+    <link rel="stylesheet" href="{% static 'collaborate/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    <!-- Navbar section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="{% url 'home' %}" id="navbar__logo">CONNECT</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="{% url 'home' %}" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'collaborate' %}" class="navbar__links">Collaborate</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'projects' %}" class="navbar__links">Projects</a>
+                </li>
+                
+                <li class="navbar__btn">
+                    <a href="{% url 'login' %}" class="button">Log-in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <div class="main">
+        <div class="main__container">
+            <div class="main__content">
+                <h1>FOSTERING</h1>
+                <h2>COLLABORATIONS</h2>
+                <p>for sustainable development</p>
+                <button class="main__btn">
+                    <a href="{% url 'collaborate' %}">Connect</a>
+                </button>
+            </div>
+            <div class="main__img--container">
+                <img src="{% static 'collaborate/images/pic7.svg' %}" alt="pic" id="main__img">
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="about-us">
+        <div class="about-us__container">
+            <div class="about-us__content">
+                <h1>About Us</h1>
+                <p>
+                    We are a leading tech company focused on innovation, creativity, and making the world a better place 
+                    through cutting-edge solutions. Our journey began with a small team of passionate individuals who believed 
+                    in the power of technology. Today, we have grown into a global brand with a commitment to excellence and a 
+                    desire to drive positive change.
+                </p>
+                <p>
+                    Our mission is to empower individuals and businesses by providing innovative, user-friendly solutions that 
+                    enhance productivity and foster growth. Join us on this exciting journey to the future!
+                </p>
+                <a href="#" class="about-us__btn">Learn More</a>
+            </div>
+            <div class="about-us__img-container">
+                <img src="{% static 'collaborate/images/pic6.svg' %}" alt="About Us Image" class="about-us__img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Milestones Section -->
+    <div class="milestones">
+        <h1 class="milestones__title">Our Milestones</h1>
+        <div class="milestones__container">
+            <!-- Milestone 1 -->
+            <div class="milestone__card">
+                <h2>Partnerships</h2>
+                <p>We launched our platform with the goal of connecting the world through technology.</p>
+            </div>
+            <!-- Milestone 2 -->
+            <div class="milestone__card">
+                <h2>Achieving Goals</h2>
+                <p>Reached 1 million active users on our platform.</p>
+            </div>
+            <!-- Milestone 3 -->
+            <div class="milestone__card">
+                <h2>Bridging gaps</h2>
+                <p>Expanded to 10 new countries with localized content.</p>
+            </div>
+            <!-- Add more milestones here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Navigation links -->
+            <div class="footer-nav">
+                <ul class="footer-menu">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li> <!-- Make sure you have this URL -->
+                    <li><a href="{% url 'projects' %}">Projects</a></li>
+                    <li><a href="{% url 'milestones' %}">Milestones</a></li> <!-- Make sure you have this URL -->
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li> <!-- Make sure you have this URL -->
+                    <li><a href="{% url 'contribute' %}">Fund Projects</a></li>
+                    <li><a href="{% url 'share_idea' %}">Share Idea</a></li> <!-- Make sure you have this URL -->
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </div>
+
+            <!-- Copyright Information -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'collaborate/app.js' %}"></script>   
+</body>
+</html>

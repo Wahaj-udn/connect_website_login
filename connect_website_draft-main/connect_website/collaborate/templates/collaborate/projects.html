@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        th, td {
+            vertical-align: middle; /* Ensure vertical alignment */
+        }
+        th:first-child, td:first-child {
+            text-align: center;
+        }
+        .accordion-button:focus {
+            box-shadow: none; /* Remove outline on accordion button focus */
+        }
+        
+        /* Navbar dark blue color */
+        .navbar {
+            background-color: #003366 !important; /* Dark blue */
+        }
+
+        /* Fancy table styles */
+        table {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            table-layout: fixed; /* Ensure consistent column width */
+            width: 100%;
+        }
+
+        thead {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Styling the accordion rows */
+        .accordion-collapse {
+            border-top: 1px solid #ccc;
+        }
+
+        .p-3 {
+            background-color: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Add subtle box shadow to the expanded accordion */
+        .collapse.show {
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="index.html">
+
+                <img src="https://img.icons8.com/material-rounded/24/ffffff/home.png" alt="Home" />
+                Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Projects</h1>
+
+        <!-- Fancy Table with Accordion for more details -->
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col" class="align-middle">S.no</th>
+                        <th scope="col" class="align-middle">Project Name</th>
+                        <th scope="col" class="align-middle">Details</th>
+                        <th scope="col" class="align-middle">Status</th>
+                        <th scope="col" class="align-middle">SDG Focus</th>
+                        <th scope="col" class="align-middle">Impact</th>
+                        <th scope="col" class="align-middle">Location</th>
+                        <th scope="col" class="align-middle">Initiated by</th>
+                        <th scope="col" class="align-middle">Collab between</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- First project row with accordion details -->
+                    <tr data-bs-toggle="collapse" data-bs-target="#details1" aria-expanded="false" aria-controls="details1" class="accordion-toggle">
+                        <th scope="row" class="align-middle">1</th>
+                        <td class="align-middle">Project Alpha</td>
+                        <td class="align-middle">Development of AI-powered healthcare solutions.</td>
+                        <td class="align-middle">Ongoing</td>
+                        <td class="align-middle">SDG 3: Good Health and Well-being</td>
+                        <td class="align-middle">Improved patient diagnostics in rural areas</td>
+                        <td class="align-middle">New York, USA</td>
+                        <td class="align-middle">John Doe</td>
+                        <td class="align-middle">University X, HealthTech Corp</td>
+                    </tr>
+                    <tr id="details1" class="collapse accordion-collapse">
+                        <td colspan="9">
+                            <div class="p-3">
+                                <strong>More Info:</strong> The project aims to improve healthcare accessibility in rural regions through AI and machine learning technologies, providing faster and more accurate diagnostics.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Second project row with accordion details -->
+                    <tr data-bs-toggle="collapse" data-bs-target="#details2" aria-expanded="false" aria-controls="details2" class="accordion-toggle">
+                        <th scope="row" class="align-middle">2</th>
+                        <td class="align-middle">Project Beta</td>
+                        <td class="align-middle">Green energy solutions for urban spaces.</td>
+                        <td class="align-middle">Completed</td>
+                        <td class="align-middle">SDG 7: Affordable and Clean Energy</td>
+                        <td class="align-middle">Reduced carbon emissions by 15%</td>
+                        <td class="align-middle">Berlin, Germany</td>
+                        <td class="align-middle">Jane Smith</td>
+                        <td class="align-middle">GreenTech Inc, City Gov</td>
+                    </tr>
+                    <tr id="details2" class="collapse accordion-collapse">
+                        <td colspan="9">
+                            <div class="p-3">
+                                <strong>More Info:</strong> The project focused on reducing urban carbon footprints through renewable energy installations in residential and commercial buildings.
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

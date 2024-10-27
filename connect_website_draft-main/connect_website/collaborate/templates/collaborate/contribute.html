@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funding Project Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Full-width image */
+    .full-width-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page title -->
+  <div class="container my-5">
+    <h1 class="text-center">Our Funding Projects</h1>
+  </div>
+
+  <!-- Full-width image -->
+  <div class="container-fluid p-0">
+    <img src="fund.jpg" alt="Funding Banner" class="full-width-img">
+  </div>
+
+  <!-- Table of Ideas -->
+  <div class="container my-5">
+    <h2 class="mb-4">Projects Needing Funding</h2>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Project Name</th>
+          <th>Description</th>
+          <th>Goal Amount</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for idea in ideas %}
+        <tr>
+          <td>{{ idea.name }}</td>  <!-- Ensure to match the model field names -->
+          <td>{{ idea.description }}</td>
+          <td>{{ idea.goal_amount|default:"N/A" }}</td>
+          <td>{{ idea.status|default:"In Progress" }}</td>
+          <td>
+            <!-- Button to show more details for each project -->
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#ideaDetails{{ idea.id }}" aria-expanded="false" aria-controls="ideaDetails{{ idea.id }}">
+              View Details
+            </button>
+          </td>
+        </tr>
+
+        <!-- Idea Details Section -->
+        <tr class="collapse" id="ideaDetails{{ idea.id }}">
+          <td colspan="5">
+            <div class="card card-body">
+              <h4>{{ idea.name }} Details</h4>
+              <p>{{ idea.long_description|default:"Detailed description not available." }}</p>
+              
+              <!-- Donate Now Button -->
+              <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#contactInfo{{ idea.id }}" aria-expanded="false" aria-controls="contactInfo{{ idea.id }}">
+                Donate Now
+              </button>
+
+              <!-- Contact Info Dropdown (initially hidden) -->
+              <div class="collapse mt-3" id="contactInfo{{ idea.id }}">
+                <h5>Contact Information</h5>
+                <p><strong>Email:</strong> donate@{{ idea.name|slugify }}.org</p>
+                <p><strong>Phone:</strong> +123-456-7890</p>
+                <p><strong>Address:</strong> 123 Main Street, City</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="text-center">No projects available for funding at this time.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
